@@ -1,0 +1,55 @@
+// 1030.cpp : 定义控制台应用程序的入口点。
+//这道题中等难度，但是实现比较简单
+//最终得分22分，还差3分
+
+#include "stdafx.h"
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	int N, P;
+	cin >> N >> P;
+	vector<long> num;
+	long tmp;
+	for (int i = 0;i < N;i++)
+	{
+		cin >> tmp;
+		num.push_back(tmp);
+	}
+	sort(num.begin(), num.end());
+	int count1 = 0;							//记录最多完美数列中有几个元素
+	int count2 = 0;
+	long M = num[N - 1];
+	for (int i = 0;i < num.size();i++)
+	{
+		if (M <= num[i] * P)
+		{
+			count1 = num.size() - i;
+			break;
+		}
+	}
+	long m = num[0];
+	for (int i = num.size() - 1;i >= 0;i--)
+	{
+		if (num[i] <= m*P)
+		{
+			count2 = i + 1;
+			break;
+		}
+	}
+	int count = 0;
+	if (count1 >= count2)
+	{
+		count = count1;
+	}
+	else
+	{
+		count = count2;
+	}
+	cout << count << endl;
+    return 0;
+}
