@@ -127,7 +127,7 @@ bool Insert_Sort(vector<int> &a, vector<int> & b, int len)
 //}
 
 
-void Merge(vector<int>& a, int low, int mid, int high)
+void Merge(vector<int>& a, int low, int mid, int high)		//每一次进行Merge操作前，前半部分和后半部分都是分别排好序的
 {
 	vector<int> t;
 	for (int i = 0;i < high - low;i++)
@@ -136,7 +136,8 @@ void Merge(vector<int>& a, int low, int mid, int high)
 	}
 	int i = low, j = mid, k = 0;
 
-	while (i < mid && j < high) {
+	while (i < mid && j < high) 
+	{
 		if (a[i] <= a[j])
 			t[k++] = a[i++];
 		else
@@ -148,7 +149,8 @@ void Merge(vector<int>& a, int low, int mid, int high)
 	while (j < high)
 		t[k++] = a[j++];
 
-	for (i = low, k = 0; i < high; i++) {
+	for (i = low, k = 0; i < high; i++) 
+	{
 		a[i] = t[k++];
 	}
 }
