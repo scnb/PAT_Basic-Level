@@ -1,0 +1,4 @@
+A-T B-F C-F D-F
+C-T B-F A-F D-F
+A-F D-F C-F B-T
+B-T A-F C-F D-F
