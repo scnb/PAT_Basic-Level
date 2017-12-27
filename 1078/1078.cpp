@@ -1,7 +1,5 @@
 // 1078.cpp : 定义控制台应用程序的入口点。
 //
-
-#include "stdafx.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,8 +15,8 @@ int main()
 	cin >> choice;
 	string output;
 	string str;
-	freopen("input2.txt", "r", stdin);
-	getchar();			//去掉上一句后，必须要用getchar来吃回车
+	freopen("input1.txt", "r", stdin);
+	//getchar();
 	getline(cin, str);
 	if (choice == "C") //压缩 
 	{
@@ -34,9 +32,20 @@ int main()
 				i++;
 				count++;
 			}
-			if (count>1)
+			if (count>1 && count <10)
 			{
 				output += (count + '0');
+				output += tmp;
+			}
+			else if (count >= 10)
+			{
+				string tmp_str = "";
+				while (count > 0)
+				{
+					tmp_str = char(count % 10 + '0') + tmp_str;
+					count = count / 10;
+				}
+				output += tmp_str;
 				output += tmp;
 			}
 			else
